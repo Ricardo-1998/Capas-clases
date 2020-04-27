@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+
+<body>
+	<div >
+		<h1 >Env&iacute;o de objetos a p&aacute;fina</h1>
+		<div >
+			<div >
+				<p > Este es un ejemplo de uso del objeto model view</p>
+					<span th:tect="${hora}"/>
+			</div>
+		</div>		
+	</div>
+</body>

@@ -1,0 +1,5 @@
+package com.uca.capas.tarea3capas.config;
+
+public class WebConfig {
+
+}

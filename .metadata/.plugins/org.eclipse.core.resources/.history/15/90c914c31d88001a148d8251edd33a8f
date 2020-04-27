@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body id="page-top">
+
+ 
+  <div id="wrapper">
+
+    <div id="content-wrapper">
+
+      <div class="container-fluid">
+			<h1 class="mt-4">Par&aacute;metros enviados</h1>
+			<div class="card mb-4">
+            	<div class="card-body">
+            		<p class="mb-0">Usuario:&nbsp; <b><span th:text="${user}"></span></b></p>
+            		<p class="mb-0">Contrase&ntilde;a:&nbsp;<b><span th:text="${pass}"></span></b></p>
+            	</div>
+            </div>
+            
+            
+      </div>
+
+    </div>
+</body>
+
+</html>

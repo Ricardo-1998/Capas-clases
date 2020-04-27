@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+
+<body>
+	<h1 class="mt-4">Formulario con httoServletRequest</h1>
+	<div class="card mb-4">
+		<div class="card-body">
+			<p classh="mb-0">Ingrese credenciales:</p><br/>
+			<form method="post" th:action="@{/parametros1}">
+				<div class="form-group">
+					<label class="small mb-1" for="nombre">Nombres</label>
+					<input class="form-control py-4" id="nombre" type="text"  placeholder="Ingrese nombre" style="width:400px" name="nombre"/>
+				</div>
+				<div class="form-group">
+					<label class="small mb-1" for="apellido">Apellidos</label>
+					<input class="form-control py-4" id="apellido" type="text"  placeholder="Ingrese apellido" style="width:400px" name="apellido"/>
+				</div>
+				<div class="form-group">
+					<label class="small mb-1" for="fecha">Fecha de nacimiento</label>
+					<input class="form-control py-4" id="fecha" type="date" style="width:400px" name="fecha" required/>
+				</div>
+				<div class="form-group">
+					<label class="small mb-1" for="lnacimiento">Lugar Nacimiento</label>
+					<input class="form-control py-4" id="lnacimiento" type="text" style="width:400px" name="lnacimiento"/>
+				</div>
+				
+				<div class="form-group">
+					<label class="small mb-1" for="colegio">Instituto o colegio</label>
+					<input class="form-control py-4" id="colegio" type="text" placeholder="Instituto o colegio"style="width:400px" name="colegio"/>
+				</div>
+				<div class="form-group">
+					<label class="small mb-1" for="tfijo">Telefono fijo</label>
+					<input class="form-control py-4" id="tfijo" type="number" placeholder="########"style="width:400px" name="tfijo"/>
+				</div>
+				<div class="form-group">
+					<label class="small mb-1" for="tmovil">Telefono movil</label>
+					<input class="form-control py-4" id="tmovil" type="number" placeholder="########"style="width:400px" name="tmovil"/>
+				</div>
+				
+				<div>
+					<input type="submit" class="btn btn-primary" value="Guardar Alumno"></a>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>

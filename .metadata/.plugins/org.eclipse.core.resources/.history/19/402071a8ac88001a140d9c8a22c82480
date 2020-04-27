@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body id="page-top">
+
+ 
+  <div id="wrapper">
+
+    <div id="content-wrapper">
+
+      <div class="container-fluid">
+			<h1 class="mt-4">Par&aacute;metros enviados</h1>
+			<div class="card mb-4">
+            	<div class="card-body">
+            		<p class="mb-0">Nombre:&nbsp; <b><span th:text="${nombre}"></span></b></p>
+            		<p class="mb-0">Apellido:&nbsp; <b><span th:text="${apellido}"></span></b></p>
+            		<p class="mb-0">Fecha:&nbsp;<b><span th:text="${fecha}"></span></b></p>
+            		<p class="mb-0">Nombre:&nbsp; <b><span th:text="${lnacimiento}"></span></b></p>
+            		<p class="mb-0">Fecha:&nbsp;<b><span th:text="${colegio}"></span></b></p>
+            		<p class="mb-0">Apellido:&nbsp; <b><span th:text="${tfijo}"></span></b></p>
+            		<p class="mb-0">Apellido:&nbsp; <b><span th:text="${tmovil}"></span></b></p>
+            	</div>
+            </div>
+            
+            
+      </div>
+
+    </div>
+</body>
+
+</html>
