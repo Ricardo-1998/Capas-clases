@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Vista Agregar Producto</title>
+</head>
+<body>
+
+<h1>Agregar Producto</h1>
+<form method="post" th:action="@{/procesar}" th:object="${product}">
+	<br>
+	<div>
+		<label for="codigo">Codigo:</label>
+		<input th:field="*{codigo}" id="codigo" type="text" placeholder="ingrese codigo"/>
+		<span th:errors="*{codigo}" style="color: #FF0000"></span>
+	</div>
+	<br>
+	<div>
+		<label for="nombre">Nombre:</label>
+		<input th:field="*{nombre}" id="nombre" type="text" placeholder="ingrese nombre"/>
+		<span th:errors="*{nombre}" style="color: #FF0000"></span>
+	</div>
+	<br>
+	<div>
+		<label for="marca">Marca:</label>
+		<input th:field="*{marca}" id="marca" type="text" placeholder="ingrese marca"/>
+		<span th:errors="*{marca}" style="color: #FF0000"></span>
+	</div>
+	<br>
+	<div>
+		<label for="descripcion">Descripcion:</label><br>
+		<textarea th:field="*{descripcion}" id="descripcion" placeholder="Descripcion......" rows="4" cols="30"></textarea>
+		<span th:errors="*{descripcion}" style="color: #FF0000"></span>
+	</div>
+	<br>
+	<div>
+		<label for="existencias">Existencias:</label>
+		<input th:field="*{existencias}" id="existencias" type="text" placeholder="ingrese existencias"/>
+		<span th:errors="*{existencias}" style="color: #FF0000"></span>
+	</div>
+	<br>
+	<div>
+		<label for="fIngreso">Fecha de ingreso:</label>
+		<input th:field="*{fIngreso}" id="fIngreso" type="text" placeholder="19/2/2020"/>
+		<span th:errors="*{fIngreso}" style="color: #FF0000"></span>
+	</div>
+	<br>
+	<div>
+		<input type="submit" value="Iniciar sesion"/>
+	</div>
+
+</form>
+
+</body>
+</html>
