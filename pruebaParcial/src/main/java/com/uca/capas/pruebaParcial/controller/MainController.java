@@ -1,7 +1,6 @@
 package com.uca.capas.pruebaParcial.controller;
 
-import java.text.DateFormat;
-import java.text.ParseException;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -13,24 +12,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.web.servlet.ModelAndView;
 
-import com.uca.capas.pruebaParcial.dao.ContribuyenteDAO;
-import com.uca.capas.pruebaParcial.dao.ImportanciaDAO;
+
 import com.uca.capas.pruebaParcial.domain.Contribuyente;
 import com.uca.capas.pruebaParcial.domain.Importancia;
+import com.uca.capas.pruebaParcial.service.ContribuyenteService;
+import com.uca.capas.pruebaParcial.service.ImportanciaService;
 
 @Controller
 public class MainController {
 	
 	@Autowired
-	ImportanciaDAO importanciaDao;
+	ImportanciaService importanciaService;
 	
 	@Autowired
-	ContribuyenteDAO contribuyenteDao;
-	
-
+	ContribuyenteService contribuyenteService;
 	
 	
 	@RequestMapping("/inicio")
@@ -39,7 +37,7 @@ public class MainController {
 		Contribuyente contribuyente =  new Contribuyente();
 		List<Importancia> importancias= null;
 		try {
-			importancias =  importanciaDao.findAll();
+			importancias =  importanciaService.findAll();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -58,7 +56,7 @@ public class MainController {
 
 			List<Importancia> importancias= null;
 			try {
-				importancias =  importanciaDao.findAll();
+				importancias =  importanciaService.findAll();
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
@@ -66,12 +64,12 @@ public class MainController {
 			mav.setViewName("index");
 		}
 		else {
-			DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
-		    Date dateobj = new Date();
-		    contribuyente.setF_fecha_ingreso(dateobj);
+			SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
+			Date date = new Date(System.currentTimeMillis());
+		    contribuyente.setF_fecha_ingreso(date);
 		    
 		   
-		    contribuyenteDao.save(contribuyente);
+		    contribuyenteService.save(contribuyente);
 
 			mav.setViewName("resultado");
 		}
@@ -86,9 +84,8 @@ public class MainController {
 		ModelAndView mav = new ModelAndView();
 		List<Contribuyente> contribuyentes =null;
 		
-		contribuyentes=contribuyenteDao.findAll();
+		contribuyentes=contribuyenteService.findAll();
 		
-		System. out. println(contribuyentes.get(6).getC_importancia().getS_importancia().toString());
 		
 		mav.addObject("contribuyentes", contribuyentes);
 		mav.setViewName("contribuyentes");

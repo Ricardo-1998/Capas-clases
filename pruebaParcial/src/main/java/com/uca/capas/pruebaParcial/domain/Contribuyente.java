@@ -1,8 +1,11 @@
 package com.uca.capas.pruebaParcial.domain;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,14 +14,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
+
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+
 
 @Entity
 @Table(schema="public",name="contribuyente")
@@ -53,6 +59,7 @@ public class Contribuyente {
 	
 	@Column(name="f_fecha_ingreso")
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@Temporal(TemporalType.DATE)
 	private Date f_fecha_ingreso;
 	
 	
@@ -110,8 +117,11 @@ public class Contribuyente {
 		this.s_nit = s_nit;
 	}
 
-	public Date getF_fecha_ingreso() {
-		return f_fecha_ingreso;
+	public String getF_fecha_ingreso() throws ParseException{
+		DateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
+		Date date2 = new SimpleDateFormat("yyyy-mm-dd").parse(String.valueOf(f_fecha_ingreso));
+		String strDate = formatter.format(date2);
+		return strDate;
 	}
 
 	public void setF_fecha_ingreso(Date f_fecha_ingreso) {
