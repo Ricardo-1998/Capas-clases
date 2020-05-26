@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+
+<body style="background-color:#4a4b4c;">
+
+	<div><h2 style="color:white; text-align:center;">INGRESAR LIBRO</h2></div><br>
+	<form th:action="@{/formLibro}"  method="post" th:object="${libro}">
+		
+		<div class="form-group row">
+			<label style="color:white;" class="col-sm-2 col-form-label">Titulo:</label>
+			<div class="col-sm-10">
+				<input class="form-control" type="text" name="s_titulo" th:field="${libro.s_titulo}">
+				<span th:errors="*{s_titulo}" style="color:#ae3232;"></span><br>
+			</div>
+			
+		</div>
+		
+		<div class="form-group row">
+			<label style="color:white;" class="col-sm-2 col-form-label">Autor:</label>
+			<div class="col-sm-10">
+				<input class="form-control" type="text" name="s_autor" th:field="${libro.s_autor}">
+				<span th:errors="*{s_autor}" style="color:#ae3232;"></span><br>
+			</div>
+			
+		</div>
+		
+		<div class="form-group row">
+			<label style="color:white;" class="col-sm-2 col-form-label">ISBN:</label>
+			<div class="col-sm-10">
+				<input class="form-control" type="text" name="s_isbn" th:field="${libro.s_isbn}">
+				<span th:errors="*{s_isbn}" style="color:#ae3232;"></span><br>
+			</div>
+			
+		</div>
+			
+		<div class="form-group row">
+			<label style="color:white;" class="col-sm-2 col-form-label">Categoria:</label>
+			<div class="col-sm-10">
+				<select class="custom-select" th:field="*{c_categoria.c_categoria}">
+		  			<option th:each="cate : ${categorias}" 
+		  					th:value=${cate.c_categoria} 
+		  					th:text="${cate.s_categoria}">
+		  			</option>
+				</select>
+			</div>
+		</div><br>
+		
+		<span th:text="${mensaje}" style="color:#ae3232;"></span><br>
+			
+		<label style="color:white;" class="col-sm-2 col-form-label">Estado:</label><input type="checkbox" th:field="*{b_estado}" th:value="${true}"/><br>
+		
+		<input type="submit" class="btn btn-secondary" value="Agregar Libro">
+	</form><br>
+	
+	<form th:action="@{/index}">
+		<input type="submit"  class="btn btn-secondary" value="Regresar">
+	</form>
+</body>
+</html>
